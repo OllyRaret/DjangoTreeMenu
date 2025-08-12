@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Menu</title>
+    <link rel="stylesheet" href="{% static 'tree_menu/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Древовидное меню</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            {% load tree_menu_tags %}
+            {% draw_menu menu.name %}
+        </aside>
+    </div>
+</body>
+</html>

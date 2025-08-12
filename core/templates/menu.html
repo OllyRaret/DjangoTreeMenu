@@ -1,0 +1,12 @@
+{% if menu %}
+<div class="tree-menu">
+    <h3>{{ menu.name }}</h3>
+    <ul>
+        {% for item in menu_tree %}
+            {% with has_children=item.children|length %}
+                {% include "menu_item.html" with has_children=has_children %}
+            {% endwith %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

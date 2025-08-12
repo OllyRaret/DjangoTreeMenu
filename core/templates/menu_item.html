@@ -1,0 +1,12 @@
+<li class="{% if item.is_active %}active{% endif %} {% if has_children %}has-children{% endif %} {% if item.is_expanded %}is-expanded{% endif %}">
+    <a href="{{ item.url }}">{{ item.title }}</a>
+    {% if item.children and item.is_expanded %}
+        <ul>
+            {% for child in item.children %}
+                {% with item=child has_children=child.children|length template_name="menu_item.html" %}
+                    {% include template_name %}
+                {% endwith %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>
